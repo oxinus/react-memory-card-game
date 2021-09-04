@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.app-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #292929;
+}
+.card-container {
+  width: 750px;
+  height: 570px;
+  display: flex;
+  flex-wrap: wrap;
+  /* if we use 3d effect we should use this */
+  perspective: 1000px
+}
+.img-container{
+  width: 175px;
+  height: 180px;
+  margin: 5px;
+  transition: transform .7s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.front-face, .back-face{
+  width: 175px;
+  height: 180px;
+  cursor: pointer;
+  background-color: rgba(146, 160, 155, 0.15);  
+  border-radius: 5px;
+  padding: 10px;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+/* if card's flippped to true we rotate it to front side */
+.img-container.flipped{
+  transform: rotateY(180deg);
+}
+
+/* when card is front-side we shouild rotate it to back the back-side */
+.front-face{
+  transform: rotateY(180deg);
+}
